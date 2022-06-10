@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>BillTrack</title>
+</head>
+<body>
+    <h1>Welcome to BillTrack!</h1>
+    <form action="/bills" method="POST">
+        <input type="text" placeholder="Bill Name" name="billName" >
+        <input type="text" placeholder="Bill Cost" name="billCost">
+        <input type="date" name="billDue">
+        <button type="submit">Submit</button>
+    </form>
+    <h2>Bills for The Month</h2>
+    <ul class="bills">
+        <!-- Looping through bills -->
+        <% for (let i = 0; i < info.length; i++) {%>
+            <li class="rapper">
+                <span><%= info[i].billName %></span>
+                <span><%= `$` + info[i].billCost %></span>
+                <span><%= info[i].billDue %></span>
+                <span class='fa fa-trash'></span>
+            </li>
+    
+            <% } %>
+    </ul>
+    <script src="/main.js"></script>
+</body>
+</html>
