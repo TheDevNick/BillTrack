@@ -15,7 +15,7 @@ MongoClient.connect(`mongodb+srv://${username}:${password}@cluster0.7lkx5.mongod
 .then(client => {
     const db = client.db('BillTrack')
     const billsCollection = db.collection('bills')
-    console.log(`Connected to the ${db} database!`)
+    console.log(`Connected to the database!`)
     app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true }))//this reads the html
     app.use(bodyParser.json())//returns json
