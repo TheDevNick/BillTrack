@@ -5,8 +5,7 @@ Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteBill)
 })
 async function deleteBill(){
-    const bName = this.parentNode.childNodes[1].innerText
-    // const bName = this.parentNode.childNodes[3].innerText
+    const bName = this.parentNode.childNodes[3].innerText
     try{
         const response = await fetch('deleteBill', {
             method: 'delete',
@@ -15,9 +14,10 @@ async function deleteBill(){
               'billNameS': bName
             })
           })
-        const data = await response.json()
-        console.log(data)
+        const data = await response.json()//this response came from the server
         location.reload()
+        console.log(data)
+        console.log(`bName is: ${bName} .`)
 
     }catch(err){
         console.log(err)

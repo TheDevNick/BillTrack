@@ -42,7 +42,7 @@ MongoClient.connect(`mongodb+srv://${username}:${password}@cluster0.7lkx5.mongod
     app.delete('/deleteBill', (request, response) => {
         db.collection('bills').deleteOne({billName: request.body.billNameS})
         .then(result => {
-            console.log('bill Deleted')
+            console.log(`bill Deleted`)
             response.json('bill Deleted')
         })
         .catch(error => console.error(error))

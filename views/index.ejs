@@ -19,39 +19,47 @@
       <form action="/bills" method="POST">
           <div class="row container">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Bill Name" aria-label="Bill Name" name="billName">
+                <input type="text" class="form-control" placeholder="Bill Name" aria-label="Bill Name" name="billName" required>
               </div>
               <div class="col">
-                <input type="number" class="form-control" placeholder="Bill Cost" aria-label="Bill Cost" name="billCost">
+                <input type="number" class="form-control" placeholder="Bill Cost" aria-label="Bill Cost" name="billCost" required>
               </div>
               <div class="col">
-                <input type="date" class="form-control" placeholder="Bill Due" aria-label="Bill Due" name="billDue">
+                <input type="date" class="form-control" placeholder="Bill Due" aria-label="Bill Due" name="billDue" required>
               </div>
               <button type="submit" class="btn btn-success">Enter Bill</button>
             </div>
       </form>
     </section>
-    <section class="card bg-dark w-50 m-auto text-center">
-      <h2 class="my-4 text-light">List of Bills</h2>
+      <h2 class="my-4 text-primary text-center">List of Bills</h2>
 
-      <ul class="bills">
           <!-- Looping through bills -->
-          <!-- turn into a table -->
           <% for (let i = 0; i < info.length; i++) {%>
             <%
-              const billName = info[i].billName
-              const capitalizedBillName = billName.charAt(0).toUpperCase() + billName.slice(1)
+              const billName = info[i].billName.toLowerCase()
             %>
-              <li class="rapper">
-                  <span><%= capitalizedBillName %></span>
-                  <span><%= `$` + info[i].billCost %></span>
-                  <span><%= info[i].billDue %></span>
-                  <span class='fa fa-trash'>
-              </li>
-      
+            <section class="billBox billCard w-50">
+              <div>
+                <h2>Name of Bill</h2>
+                <h3><%= billName %></h3>
+                <span class='fa fa-trash'></span>
+              </div>
+              
+              <div>
+                <h2>Amount Due</h2>
+                <h3><%= `$` + info[i].billCost %></h3>
+              </div>
+              <div>
+                <h2>Due Date</h2>
+                <h3><%= info[i].billDue %></h3>
+              </div>
+              <div class="modifyBill">
+                  
+                </div>
+              </section>
+              
               <% } %>
-      </ul>
-    </section>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
