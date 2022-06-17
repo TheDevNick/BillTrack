@@ -5,7 +5,7 @@ Array.from(deleteText).forEach((element)=>{
     element.addEventListener('click', deleteBill)
 })
 async function deleteBill(){
-    const bName = this.parentNode.childNodes[3].innerText
+    const bName = this.parentNode.innerText
     try{
         const response = await fetch('deleteBill', {
             method: 'delete',

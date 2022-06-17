@@ -5,6 +5,10 @@ li {
     color: #fff;
 }
 
+span {
+    padding: .5rem;
+}
+
 
 
 /* ====================== BILL SECTION STYLING ================= */
@@ -26,4 +30,19 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+@media(max-width: 970px) {
+   .billBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+   } 
+   .billBox div {
+    margin: 1rem;
+   }
+   .billBox div h2 { 
+    border-bottom: 2px solid #047AEA;
+   }
 }
