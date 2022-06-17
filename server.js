@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const distDir = __dirname + "/dist/";
+ app.use(express.static(distDir));
 
 const bodyParser = require('body-parser')
 
